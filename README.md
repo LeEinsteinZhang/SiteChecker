@@ -10,3 +10,7 @@ There are 4 Python files
 - main.py is the file include the main loop to run the program
 
 Comand include the PyInstaller comand to compile this program
+
+
+Update log after published:
+- Jan-01-2024: update readme file. There are few more bugs related bit map. This will be fixed later.
