@@ -1,0 +1,1 @@
+python -m PyInstaller --add-data "social_media_domains.json:." --add-data "exclusion_list.json:." --add-data "logo.ico:." --icon=logo.ico --noconsole main.py

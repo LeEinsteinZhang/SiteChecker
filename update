@@ -1,0 +1,26 @@
+#!/bin/bash
+
+git checkout main
+
+FILE_PATH="./main.py"
+current_directory=$(basename "$PWD")
+
+CURRENT_DATE=$(date '+%b. %d %Y')
+
+NEW_DATE_LINE="## Update Time: $CURRENT_DATE"
+
+sed -i "s/^## Update Time:.*$/${NEW_DATE_LINE}/" $FILE_PATH
+
+git add .
+echo "commit"
+read commit_message
+full_commit_message="[$current_directory] $commit_message"
+git commit -m "$full_commit_message"
+git push origin main
+
+if [ $? -eq 0 ]; then
+    echo "Git push successful"
+else
+    echo "Git push failed"
+    exit 1
+fi
