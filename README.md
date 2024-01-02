@@ -14,3 +14,4 @@ Comand include the PyInstaller comand to compile this program
 
 Update log after published:
 - Jan-01-2024: update readme file. There are few more bugs related bit map. This will be fixed later.
+- Jan-02-2024: fix few bugs related bit map
