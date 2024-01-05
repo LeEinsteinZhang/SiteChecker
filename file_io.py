@@ -332,6 +332,22 @@ def load_icon(file_path):
 
 
 def parse_and_sort(output_name):
+    """
+    parse_and_sort(output_name) reads the content from a text file named as per the output_name, 
+    sorts the content blocks based on a specific key, and then writes the sorted content back to the same file.
+
+    parse_and_sort: Str -> None
+
+    Requires: output_name is a string that represents the base name for the output text file.
+              The text file named '{output_name}result_{time_str}.txt' must exist on the user's desktop.
+
+    Effect: Reads from a text file located on the user's desktop, sorts the content, and overwrites the file with sorted content.
+
+    Example:
+        parse_and_sort('analysis_')
+
+        This will read 'analysis_result_{time_str}.txt', sort its content, and overwrite the file with sorted data.
+    """
     output_file_path = user_desktop / f'{output_name}result_{time_str}.txt'
     if output_file_path.exists():
         with open(output_file_path, 'r') as file:
@@ -348,11 +364,42 @@ def parse_and_sort(output_name):
 
 
 def save_bin(bit_array):
+    """
+    save_bin(bit_array) writes the provided bit array to a binary file named 'progress.bin'.
+
+    save_bin: BitArray -> None
+
+    Requires: bit_array is an instance of the BitArray type or similar, supporting the tofile method.
+
+    Effect: Writes the content of bit_array to a binary file 'progress.bin' in the current working directory.
+
+    Example:
+        save_bin(my_bit_array)
+
+        Where 'my_bit_array' is a bit array that needs to be saved to 'progress.bin'.
+    """
     with open('progress.bin', 'wb') as file:
         bit_array.tofile(file)
 
 
 def load_bin(size):
+    """
+    load_bin(size) reads a bit array from the 'progress.bin' file if it exists, 
+    or creates a new bit array of a specified size with all bits set to 0 if the file doesn't exist.
+
+    load_bin: Int -> BitArray
+
+    Requires: size is a positive integer that specifies the size of the bit array to be created if 'progress.bin' doesn't exist.
+
+    Effect: Reads from or creates a file named 'progress.bin' in the current working directory.
+
+    Returns: A bit array that is either loaded from 'progress.bin' or newly created with all bits set to 0.
+
+    Example:
+        bit_array = load_bin(1024)
+
+        This will load a bit array from 'progress.bin' or create a new one with 1024 bits, all set to 0.
+    """
     progress_file = Path('progress.bin')
     if progress_file.exists():
         with progress_file.open('rb') as file:
