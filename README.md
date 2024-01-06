@@ -17,3 +17,4 @@ Update log after published:
 - Jan-02-2024: fix few bugs related bit map
 - Jan-03-2024: add docstring to operations-range_check_fast.
 - Jan-05-2024: add docstring to operations-rparse_and_sort, save_bin and load_bin.
+- Jan-05-2024: finish update
